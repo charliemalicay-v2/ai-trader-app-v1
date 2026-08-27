@@ -182,8 +182,8 @@ is to interpret, rank, and synthesize already-computed data — not to crunch nu
 keeps results reproducible and auditable, which matters for anything touching real money.
 
 ### 3.1 Scanner Agent (`agents/scanner.py`)
-- **Responsibility:** screen a broad universe of tickers for the best current setups (volume,
-  momentum, volatility, breakouts), rank them, return a shortlist.
+- **Responsibility:** screen a broad universe of tickers for the best current setups (price,
+  volume, momentum, volatility, breakouts), rank them, return a shortlist.
 - **Input:** `universe: list[str]` (from `config/universe.yaml`) + scan filter thresholds.
 - **Output:** `list[ShortlistedSetup]`.
 - **Tools:** `tools/market_data.py` — Alpaca `get_snapshots` / `get_bars` for the universe; a
@@ -322,6 +322,7 @@ class TechnicalBrief(BaseModel):
     ticker: str
     bias: Literal["BULLISH", "BEARISH", "NEUTRAL"]
     trend: Literal["UPTREND", "DOWNTREND", "SIDEWAYS"]
+    structure: str              # e.g. "higher highs, higher lows within rising channel"
     momentum: Literal["STRONG", "MODERATE", "WEAK"]
     key_levels: KeyLevels
     volume_trend: Literal["INCREASING", "DECREASING", "FLAT"]

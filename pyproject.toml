@@ -1,0 +1,35 @@
+[project]
+name = "ai-trader-app-v1"
+version = "0.1.0"
+description = "Personal AI trading pipeline (Scanner -> Researcher -> Technical -> Quant -> Risk -> Trader)"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "streamlit>=1.38",
+    "claude-agent-sdk>=0.1",
+    "alpaca-py>=0.33",
+    "pandas>=2.2",
+    "pandas-ta>=0.3.14b0",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.4",
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0",
+    "tenacity>=8.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.6",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["config", "models", "tools", "agents"]

@@ -1,0 +1,28 @@
+watchlist:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - GOOGL
+  - META
+  - TSLA
+  - AMD
+  - AVGO
+  - JPM
+  - V
+  - UNH
+  - XOM
+  - COST
+  - NFLX
+  - CRM
+  - ADBE
+  - QCOM
+  - INTC
+  - PYPL
+
+filters:
+  min_volume: 1000000        # min 20-day avg daily volume (shares) to pass the liquidity screen
+  min_price: 5.0              # exclude penny-stock noise
+  min_relative_volume: 1.2    # today's volume vs trailing average volume
+  breakout_lookback_days: 20  # window for the "near N-day high" breakout flag
+  top_n: 10                   # how many setups the Scanner should shortlist
